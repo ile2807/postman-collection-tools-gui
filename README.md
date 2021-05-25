@@ -2,7 +2,7 @@
 
 **Clone and run for a quick way to see React NodeGui in action.**
 
-<img alt="logo" src="https://github.com/ile2807/postman-collection-tools-gui.git/raw/master/assets/demo.png" height="500" />
+<img alt="logo" src="https://github.com/ile2807/postman-collection-tools-gui/blob/main/assets/demo.PNG?raw=true" height="500" />
 
 ## To Use
 
