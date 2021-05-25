@@ -1,6 +1,6 @@
-# react-nodegui-starter
+# Jackal collection tools GUI
 
-**Clone and run for a quick way to see React NodeGui in action.**
+**Clone and run for a quick way to see Jackal Gui in action.**
 
 <img alt="logo" src="https://github.com/ile2807/postman-collection-tools-gui/blob/main/assets/demo.PNG?raw=true" height="500" />
 
