@@ -1,5 +1,5 @@
 import { Text, Window, hot, View } from "@nodegui/react-nodegui";
-import React from "react";
+import React, { useState } from "react";
 import { QIcon } from "@nodegui/nodegui";
 import { StepOne } from "./components/stepone";
 import { StepTwo } from "./components/steptwo";
@@ -7,21 +7,29 @@ import { Buttons } from "./components/buttons";
 import nodeguiIcon from "../assets/jackal.png";
 const dogImg = require("./components/icon");
 
-const minSize = { width: 500, height: 600 };
+const minSize = { width: 500, height: 480 };
 const winIcon = new QIcon(nodeguiIcon);
-class App extends React.Component {
-  render() {
-    return (
-      <Window
-        windowIcon={winIcon}
-        windowTitle="Jackal Postman tools"
-        minSize={minSize}
-        styleSheet={styleSheet}
-      >
-        <View style={containerStyle}>
-          <Text id="welcome-text">Welcome to Jackal</Text>
-          <Text>
-            {`
+type resources = { [key: string]: any, sf: string, sd: string, of: string, command:number }
+
+const App = () => {
+  let values: resources = { sf: "", sd: "", of: "", command:0 };
+  const update = (key: string, value: string) => {
+    values[key] = value;
+  }
+  const execute = () => {
+    console.log(values)
+  }
+  return (
+    <Window
+      windowIcon={winIcon}
+      windowTitle="Jackal Postman tools"
+      minSize={minSize}
+      styleSheet={styleSheet}
+    >
+      <View style={containerStyle}>
+        <Text id="welcome-text">Welcome to Jackal</Text>
+        <Text>
+          {`
           <p style="color: rgb(255,72,38);"> 
             <center>
               <img src="${dogImg}" alt="doggy" width="100" />  
@@ -29,16 +37,15 @@ class App extends React.Component {
           </p>
           <hr />
         `}
-          </Text>
-          <Text id="step-1">1. Select command you want to perform</Text>
-          <StepOne />
-          <Text id="step-2">2. Select files and folder</Text>
-          <StepTwo />
-          <Buttons/>
-        </View>
-      </Window>
-    );
-  }
+        </Text>
+        <Text id="step-1">1. Select command you want to perform</Text>
+        <StepOne update={update}/>
+        <Text id="step-2">2. Select files and folder</Text>
+        <StepTwo update={update} />
+        <Buttons execute={execute} />
+      </View>
+    </Window>
+  );
 }
 
 const containerStyle = `

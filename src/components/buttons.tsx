@@ -1,12 +1,20 @@
 import { Button, useEventHandler, View } from "@nodegui/react-nodegui";
-import { QPushButtonSignals} from "@nodegui/nodegui";
+import { QPushButtonSignals } from "@nodegui/nodegui";
 import React from "react";
 import open from "open";
 
-export function Buttons() {
-    const btnHandler = useEventHandler <QPushButtonSignals> (
+export function Buttons(props:any) {
+    const aboutHandler = useEventHandler<QPushButtonSignals>(
         {
             clicked: () => open("https://www.npmjs.com/package/jackal-postman-tools").catch(console.log)
+        },
+        []
+    );
+    const executeHandler = useEventHandler<QPushButtonSignals>(
+        {
+            clicked: () => {
+                props.execute();
+            }
         },
         []
     );
@@ -14,21 +22,23 @@ export function Buttons() {
         <View style={viewStyle}>
             <Button
                 style={btnStyle}
-                on={btnHandler}
+                on={aboutHandler}
                 text={`About`}
             ></Button>
             <Button
                 style={btnRightStyle}
+                on={executeHandler}
                 text={`Execute`}
             ></Button>
         </View>
     );
 }
 
-const viewStyle=`
+const viewStyle = `
     flex:1;
     flex-direction: 'row';
-    margin-left:30px;
+    margin-left:28px;
+    margin-bottom: 30px;
 `
 
 const btnStyle = `
