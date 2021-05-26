@@ -11,6 +11,10 @@
     "start": "qode ./dist/index.js",
     "debug": "qode --inspect ./dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ile2807/postman-collection-tools-gui.git"
+  },
   "dependencies": {
     "@nodegui/react-nodegui": "^0.10.2",
     "open": "^7.2.1",
