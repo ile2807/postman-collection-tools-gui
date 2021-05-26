@@ -1,23 +1,37 @@
 import { Text, Window, hot, View } from "@nodegui/react-nodegui";
 import React, { useState } from "react";
-import { QIcon } from "@nodegui/nodegui";
+import { QIcon, QMessageBox, ButtonRole, QPushButton } from "@nodegui/nodegui";
 import { StepOne } from "./components/stepone";
 import { StepTwo } from "./components/steptwo";
 import { Buttons } from "./components/buttons";
 import nodeguiIcon from "../assets/jackal.png";
 const dogImg = require("./components/icon");
+const jackal = require("jackal-postman");
 
 const minSize = { width: 500, height: 480 };
 const winIcon = new QIcon(nodeguiIcon);
-type resources = { [key: string]: any, sf: string, sd: string, of: string, command:number }
+type resources = { [key: string]: any, sf: string, sd: string, of: string, command: string }
 
 const App = () => {
-  let values: resources = { sf: "", sd: "", of: "", command:0 };
+  let values: resources = { sf: "", sd: "", of: "", command: "mv" };
   const update = (key: string, value: string) => {
     values[key] = value;
   }
-  const execute = () => {
-    console.log(values)
+  const showMessage = (text: string) => {
+    const messageBox = new QMessageBox();
+    messageBox.setWindowIcon(winIcon);
+    messageBox.setWindowTitle("Info");
+    messageBox.setText(text);
+    const accept = new QPushButton();
+    accept.setText('OK');
+    messageBox.addButton(accept, ButtonRole.AcceptRole);
+    messageBox.exec();
+  }
+  const runCommand = () => {
+    console.log(values);
+    const executionResult = jackal.run(values.command, values.sf, values.sd, values.of);
+    console.log(executionResult);
+    showMessage("Execution: " + executionResult);
   }
   return (
     <Window
@@ -39,10 +53,10 @@ const App = () => {
         `}
         </Text>
         <Text id="step-1">1. Select command you want to perform</Text>
-        <StepOne update={update}/>
+        <StepOne update={update} />
         <Text id="step-2">2. Select files and folder</Text>
         <StepTwo update={update} />
-        <Buttons execute={execute} />
+        <Buttons execute={runCommand} />
       </View>
     </Window>
   );

@@ -1,15 +1,19 @@
 import { QFileDialog, FileMode, QPushButtonSignals } from "@nodegui/nodegui";
 import { Text, View, LineEdit, Button, useEventHandler } from "@nodegui/react-nodegui";
 import React from "react";
-export function Browse(props:any) {
+export function Browse(props: any) {
     const btnHandler = useEventHandler<QPushButtonSignals>(
         {
             clicked: () => {
                 const fileDialog = new QFileDialog();
-                if (props.isFolder==='true') {
+                if (props.isFolder === 'true') {
                     fileDialog.setFileMode(FileMode.Directory);
                 } else {
-                    fileDialog.setFileMode(FileMode.ExistingFile);
+                    if (props.mustExist) {
+                        fileDialog.setFileMode(FileMode.ExistingFile);
+                    } else {
+                        fileDialog.setFileMode(FileMode.AnyFile);
+                    }
                     fileDialog.setNameFilter('Postman files (*.json)');
                 } fileDialog.exec();
                 const selectedFiles = fileDialog.selectedFiles();

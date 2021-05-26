@@ -1,5 +1,5 @@
 {
-  "name": "postman-collection-tools-gui",
+  "name": "jackal-postman-gui",
   "version": "0.9.1",
   "main": "index.js",
   "author": "Ilija Trajkoski",
@@ -29,6 +29,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^6.1.0",
     "fork-ts-checker-webpack-plugin": "^5.2.0",
+    "jackal-postman": "^1.0.5",
     "native-addon-loader": "^2.0.1",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",

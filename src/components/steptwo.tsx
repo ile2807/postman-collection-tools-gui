@@ -7,8 +7,8 @@ export function StepTwo(props: any) {
   const [of, setOf] = useState('');
   return (
     <View style={containerStyle}>
-      <Browse isFolder="false" caption="Select source file" id="sf" value={sf} setValue={setSf} {...props}></Browse>
-      <Browse isFolder="true" caption="Select source folder" id="sd" value={sd} setValue={setSd} {...props}></Browse>
+      <Browse isFolder="false" mustExist caption="Select source file" id="sf" value={sf} setValue={setSf} {...props}></Browse>
+      <Browse isFolder="true" mustExist caption="Select source folder" id="sd" value={sd} setValue={setSd} {...props}></Browse>
       <Browse isFolder="false" caption="Select output file" id="of" value={of} setValue={setOf} {...props} ></Browse>
     </View>
   );
