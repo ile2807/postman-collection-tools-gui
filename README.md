@@ -38,15 +38,7 @@ npm start
 
 In order to distribute your finished app, you can use [@nodegui/packer](https://github.com/nodegui/packer)
 
-### Step 1: (_**Run this command only once**_)
-
-```sh
-npx nodegui-packer --init JackalGui
-```
-
-This will produce the deploy directory containing the template. You can modify this to suite your needs. Like add icons, change the name, description and add other native features or dependencies. Make sure you commit this directory.
-
-### Step 2: (_**Run this command every time you want to build a new distributable**_)
+### Building and making a distribution: (_**Run this command every time you want to build a new distributable**_)
 
 Next you can run the pack command:
 
