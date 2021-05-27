@@ -1,10 +1,14 @@
-# Jackal collection tools GUI
+# Jackal postman GUI
 
-**Clone and run for a quick way to see Jackal Gui in action.**
+Jackal postman GUI is a standalone application that uses [Jackal Postman](https://www.npmjs.com/package/jackal-postman) to perform supported collection posts. The available operations in the application are the only ones supported by Jackal Postman. 
 
 <img alt="logo" src="https://github.com/ile2807/postman-collection-tools-gui/raw/main/assets/demo.PNG" height="600" />
 
-## To Use
+## Running from release
+Download the latest version available for your operating system unzip it and run JackalGui
+
+## Run from source code
+**Clone and run for a quick way to see Jackal Gui in action.**
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
