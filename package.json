@@ -1,10 +1,10 @@
 {
   "name": "jackal-postman-gui",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "main": "index.js",
   "author": "Ilija Trajkoski",
   "license": "GPL",
-  "private": true,
+  "private": false,
   "scripts": {
     "build": "webpack -p",
     "dev": "webpack --mode=development",
@@ -14,6 +14,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ile2807/postman-collection-tools-gui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ile2807/postman-collection-tools-gui/issues"
   },
   "dependencies": {
     "@nodegui/react-nodegui": "^0.10.2",
@@ -33,7 +36,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^6.1.0",
     "fork-ts-checker-webpack-plugin": "^5.2.0",
-    "jackal-postman": "^1.0.5",
+    "jackal-postman": "^1.1.2",
     "native-addon-loader": "^2.0.1",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",

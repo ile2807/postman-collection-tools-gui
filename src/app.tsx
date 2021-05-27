@@ -27,11 +27,15 @@ const App = () => {
     messageBox.addButton(accept, ButtonRole.AcceptRole);
     messageBox.exec();
   }
-  const runCommand = () => {
-    console.log(values);
-    const executionResult = jackal.run(values.command, values.sf, values.sd, values.of);
-    console.log(executionResult);
-    showMessage("Execution: " + executionResult);
+  const runCommand = async () => {
+    const executionResult = await jackal.run(values.command, values.sf, values.sd, values.of);
+    let message = "";
+    if (executionResult instanceof Set) {
+      executionResult.forEach(e => message += e + ", ")
+    } else {
+      message = executionResult;
+    }
+    showMessage("Execution: " + message);
   }
   return (
     <Window

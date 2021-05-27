@@ -6,7 +6,7 @@ import open from "open";
 export function Buttons(props:any) {
     const aboutHandler = useEventHandler<QPushButtonSignals>(
         {
-            clicked: () => open("https://www.npmjs.com/package/jackal-postman-tools").catch(console.log)
+            clicked: () => open("https://github.com/ile2807/postman-collection-tools-gui/blob/main/README.md").catch(console.log)
         },
         []
     );

@@ -10,7 +10,7 @@ const commands =
     { text: "Merge all collections in collection folders into one output collection file", command: "mc", disabled: "", optional: "s" },
     { text: "Append smart test assertions into output collection file", command: "ts", disabled: "f", optional: "" },
     { text: "Append HTTP:200 test assertions into output collection file", command: "t200", disabled: "f", optional: "" },
-    { text: "Remove duplicate requests and save to output collection file", command: "crl", disabled: "f", optional: "" },
+    { text: "Remove duplicate requests and save to output collection file", command: "clr", disabled: "f", optional: "" },
     { text: "Append missing collection variables to output collection file", command: "amcv", disabled: "f", optional: "" }
   ];
 
