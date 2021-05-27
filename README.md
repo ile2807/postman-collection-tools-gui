@@ -38,7 +38,7 @@ npm start
 
 In order to distribute your finished app, you can use [@nodegui/packer](https://github.com/nodegui/packer)
 
-### Building and making a distribution: (_**Run this command every time you want to build a new distributable**_)
+### Building and making a distribution
 
 Next you can run the pack command:
 
