@@ -1,9 +1,9 @@
 {
   "name": "jackal-postman-gui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Ilija Trajkoski",
-  "license": "GPL",
+  "license": "GPL-3.0-or-later",
   "private": false,
   "scripts": {
     "build": "webpack -p",
@@ -21,7 +21,8 @@
   "dependencies": {
     "@nodegui/react-nodegui": "^0.10.2",
     "open": "^7.2.1",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "jackal-postman": "^1.1.9"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
@@ -36,7 +37,6 @@
     "clean-webpack-plugin": "^3.0.0",
     "file-loader": "^6.1.0",
     "fork-ts-checker-webpack-plugin": "^5.2.0",
-    "jackal-postman": "^1.1.2",
     "native-addon-loader": "^2.0.1",
     "typescript": "^4.0.3",
     "webpack": "^4.44.2",

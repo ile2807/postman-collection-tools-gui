@@ -1,8 +1,7 @@
-import { Text, Window, hot, View } from "@nodegui/react-nodegui";
+import { Text, Window, hot, View, Button } from "@nodegui/react-nodegui";
 import React, { useState } from "react";
 import { QIcon, QMessageBox, ButtonRole, QPushButton } from "@nodegui/nodegui";
-import { StepOne } from "./components/stepone";
-import { StepTwo } from "./components/steptwo";
+import { Selection } from "./components/selection";
 import { Buttons } from "./components/buttons";
 import nodeguiIcon from "../assets/jackal.png";
 const dogImg = require("./components/icon");
@@ -10,10 +9,10 @@ const jackal = require("jackal-postman");
 
 const minSize = { width: 500, height: 480 };
 const winIcon = new QIcon(nodeguiIcon);
-type resources = { [key: string]: any, sf: string, sd: string, of: string, command: string }
+type resources = { [key: string]: any, sf: string, sd: string, sc: string, of: string, command: string, disabled: string }
 
 const App = () => {
-  let values: resources = { sf: "", sd: "", of: "", command: "mv" };
+  let values: resources = { sf: "", sd: "", of: "", sc: "", command: "mv", disabled: "" };
   const update = (key: string, value: string) => {
     values[key] = value;
   }
@@ -27,8 +26,9 @@ const App = () => {
     messageBox.addButton(accept, ButtonRole.AcceptRole);
     messageBox.exec();
   }
+  const allowChange = (id: string) => !values.disabled.includes(id)
   const runCommand = async () => {
-    const executionResult = await jackal.run(values.command, values.sf, values.sd, values.of);
+    const executionResult = await jackal.run(values.command, values.sf, values.sd, values.of, values.sc);
     let message = "";
     if (executionResult instanceof Set) {
       executionResult.forEach(e => message += e + ", ")
@@ -56,10 +56,7 @@ const App = () => {
           <hr />
         `}
         </Text>
-        <Text id="step-1">1. Select command you want to perform</Text>
-        <StepOne update={update} />
-        <Text id="step-2">2. Select files and folder</Text>
-        <StepTwo update={update} />
+        <Selection update={update} disabled={values.disabled} allowChange={allowChange} />
         <Buttons execute={runCommand} />
       </View>
     </Window>

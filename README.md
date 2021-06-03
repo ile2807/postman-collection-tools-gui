@@ -4,6 +4,11 @@ Jackal postman GUI is a standalone application that uses [Jackal Postman](https:
 
 <img alt="logo" src="https://github.com/ile2807/postman-collection-tools-gui/raw/main/assets/demo.PNG" height="600" />
 
+## What it is
+
+Jackal GUI is a visual application that covers the same feature that the Jackal CLI tool has, in a more user friendly way.
+> Refer to the [Jackal package](https://github.com/ile2807/postman-collection-tools) or to the [Jackal CLI](https://github.com/ile2807/postman-collection-tools-cli) for more feature explanation
+
 ## Running from release
 Download the latest version available for your operating system unzip it and run the file named `qode`
 
