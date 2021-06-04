@@ -12,6 +12,7 @@ export function StepOne(props: any) {
       { text: "Append smart tests to output collection file", command: "ts", disabled: "sd,sc", optional: "" },
       { text: "Append HTTP:200 tests to output collection file", command: "t200", disabled: "sd,sc", optional: "" },
       { text: "Remove duplicate requests to output collection file", command: "clr", disabled: "sd,sc", optional: "" },
+      { text: "Remove unused collection variables to output collection file", command: "clv", disabled: "sd,sc", optional: "" },
       { text: "Append missing collection variables to output collection file", command: "amcv", disabled: "sd,sc", optional: "" }
     ];
   const changeHandler = (index: number) => {
