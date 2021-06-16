@@ -5,19 +5,23 @@ export function StepOne(props: any) {
 
   const commands =
     [
-      { text: "Merge variables to output collection file", command: "mv", disabled: "x", optional: "s" },
-      { text: "Merge variables in output environment file", command: "mev", disabled: "x", optional: "s" },
-      { text: "Merge requests to output collection file", command: "mr", disabled: "x", optional: "s" },
-      { text: "Merge all collections into output collection file", command: "mc", disabled: "x", optional: "s" },
-      { text: "Append smart tests to output collection file", command: "ts", disabled: "sd,sc", optional: "" },
-      { text: "Append HTTP:200 tests to output collection file", command: "t200", disabled: "sd,sc", optional: "" },
-      { text: "Remove duplicate requests to output collection file", command: "clr", disabled: "sd,sc", optional: "" },
-      { text: "Remove unused collection variables to output collection file", command: "clv", disabled: "sd,sc", optional: "" },
-      { text: "Append missing collection variables to output collection file", command: "amcv", disabled: "sd,sc", optional: "" }
+      { text: "Merge variables to output collection file", command: "mv", disabled: "x", optional: "Postman files (*.json)" },
+      { text: "Merge variables in output environment file", command: "mev", disabled: "x", optional: "Postman files (*.json)" },
+      { text: "Merge requests to output collection file", command: "mr", disabled: "x", optional: "Postman files (*.json)" },
+      { text: "Merge all collections into output collection file", command: "mc", disabled: "x", optional: "Postman files (*.json)" },
+      { text: "Append smart tests to output collection file", command: "ts", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Append HTTP:200 tests to output collection file", command: "t200", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Remove duplicate requests to output collection file", command: "clr", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Remove unused collection variables to output collection file", command: "clv", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Append missing collection variables to output collection file", command: "amcv", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Generate Markdown descriptions in collection", command: "gmd", disabled: "sd,sc", optional: "Postman files (*.json)" },
+      { text: "Export Markdown document from colleciton", command: "emd", disabled: "sd,sc", optional: "Markdown files (*.md)" },
+      { text: "Export PDF document from colleciton", command: "epdf", disabled: "sd,sc", optional: "Adobe PDF files (*.pdf)" }
     ];
   const changeHandler = (index: number) => {
       props.update("command", commands[index].command);
       props.update("disabled", commands[index].disabled);
+      props.update("optional", commands[index].optional);
   }
 
   return (

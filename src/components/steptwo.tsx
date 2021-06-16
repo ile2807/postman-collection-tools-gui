@@ -1,5 +1,5 @@
 import { View, useEventHandler, Text } from "@nodegui/react-nodegui";
-import { QLabelSignals, QMouseEvent, WidgetEventTypes } from "@nodegui/nodegui";
+import { QLabelSignals, QMouseEvent } from "@nodegui/nodegui";
 import React, { useState } from "react";
 import { Browse } from "./browse";
 export function StepTwo(props: any) {
@@ -7,7 +7,7 @@ export function StepTwo(props: any) {
   const [sd, setSd] = useState('');
   const [of, setOf] = useState('');
   const [sc, setSc] = useState('');
-  const [refresh, setRefresh] = useState('Pece');
+  const [refresh, setRefresh] = useState('');
 
   const textHandler = useEventHandler<QLabelSignals>(
     {

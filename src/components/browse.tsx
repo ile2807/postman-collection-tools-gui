@@ -17,7 +17,7 @@ export function Browse(props: any) {
                 } else {
                     fileDialog.setFileMode(FileMode.AnyFile);
                 }
-                fileDialog.setNameFilter('Postman files (*.json)');
+                fileDialog.setNameFilter(props.getFileType());
             } fileDialog.exec();
             const selectedFiles = fileDialog.selectedFiles();
             if (selectedFiles.length > 1) {

@@ -9,10 +9,10 @@ const jackal = require("jackal-postman");
 
 const minSize = { width: 500, height: 480 };
 const winIcon = new QIcon(nodeguiIcon);
-type resources = { [key: string]: any, sf: string, sd: string, sc: string, of: string, command: string, disabled: string }
+type resources = { [key: string]: any, sf: string, sd: string, sc: string, of: string, command: string, disabled: string, optional: string }
 
 const App = () => {
-  let values: resources = { sf: "", sd: "", of: "", sc: "", command: "mv", disabled: "" };
+  let values: resources = { sf: "", sd: "", of: "", sc: "", command: "mv", disabled: "", optional: "Postman files (*.json)" };
   const update = (key: string, value: string) => {
     values[key] = value;
   }
@@ -27,6 +27,7 @@ const App = () => {
     messageBox.exec();
   }
   const allowChange = (id: string) => !values.disabled.includes(id)
+  const getFileType = () => values.optional ;
   const runCommand = async () => {
     const executionResult = await jackal.run(values.command, values.sf, values.sd, values.of, values.sc);
     let message = "";
@@ -56,7 +57,7 @@ const App = () => {
           <hr />
         `}
         </Text>
-        <Selection update={update} disabled={values.disabled} allowChange={allowChange} />
+        <Selection update={update} disabled={values.disabled} allowChange={allowChange} getFileType={getFileType} />
         <Buttons execute={runCommand} />
       </View>
     </Window>
